@@ -28,25 +28,15 @@ public class Reigns {
      * @param args les arguments de la ligne de commande
      */
     public static void main(String[] args){
-
-        Partie partie = new Partie(initPersonnage(),initBanqueQuestions());
+        System.out.println("Bienvenue sur Reigns");
+        System.out.println("Création de la partie et du personnage...");
+        Partie partie = new Partie(initBanqueQuestions());
 
         // début du jeu
-        System.out.println("Bienvenue sur Reigns");
-
-        initBanqueQuestions();
-
-        System.out.println("Création du personnage...");
-
-        //initPersonnage();
-
-        System.out.println(personnage.getGenre().longRegne()
-                +" "+personnage.getNom());
-
-        personnage.AfficheJauges();
+        partie.initialiserPartie();
 
         // tirage des questions
-        partie.tourDeJeu();
+        partie.toursDeJeu();
 
         // fin du jeu
         partie.finDePartie();
@@ -60,7 +50,7 @@ public class Reigns {
      * et le genre (Roi ou Reine). Elle crée ensuite le personnage.
      */
 
-    private static Personnage initPersonnage(){
+    public static Personnage initPersonnage(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Entrez le nom du personnage: ");
         System.out.flush();
@@ -82,7 +72,7 @@ public class Reigns {
     /**
      * Cette fonction initialise la banque de questions. Elle crée les questions et les ajoute à la banque.
      */
-    private static ArrayList<Question> initBanqueQuestions(){
+    public static ArrayList<Question> initBanqueQuestions(){
         questions = new ArrayList<>();
         Question question1 = new Question(
                 "Main du roi",

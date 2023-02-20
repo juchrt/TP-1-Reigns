@@ -9,19 +9,20 @@ public class Partie {
     private static ArrayList<Question> questions;
     private static int nbTours;
 
-    public Partie(Personnage joueur,
-                  ArrayList<Question> questions) {
-        this.joueur = joueur;
+    public Partie(ArrayList<Question> questions) {
+        this.joueur = Reigns.initPersonnage();
         this.questions = questions;
         this.nbTours = 0;
     }
 
-    private static void initialiserPartie(){
+    public static void initialiserPartie(){
+        System.out.println(joueur.getGenre().longRegne()
+                +" "+joueur.getNom());
 
+        joueur.AfficheJauges();
     }
 
-    public static void tourDeJeu(){
-
+    public static void toursDeJeu(){
         while(!joueur.finDuJeu()){
             nbTours++;
             Question question = getQuestionAleatoire();
