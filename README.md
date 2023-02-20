@@ -1,4 +1,4 @@
-# Reigns
+# Reigns (travail de Julie C. et Paul M.)
 
 Dans ce dépôt, vous trouverez une (mauvaise) implémentation du jeu REIGNS. 
 
