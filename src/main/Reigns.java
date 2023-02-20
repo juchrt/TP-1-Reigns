@@ -40,9 +40,7 @@ public class Reigns {
 
         // fin du jeu
         partie.finDePartie();
-
     }
-
 
 
     /**
@@ -122,14 +120,5 @@ public class Reigns {
         question5.ajouteEffetDroite(TypeJauge.PEUPLE, -3);
         questions.add(question5);
         return questions;
-    }
-
-    /**
-     * Cette fonction permet de tirer une question aléatoire dans la banque de questions.
-     * @return Une question aléatoire
-     */
-    private static Question getQuestionAleatoire(){
-        int numQuestion = (int) (Math.random()*questions.size());
-        return questions.get(numQuestion);
     }
 }

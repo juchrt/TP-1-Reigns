@@ -35,10 +35,14 @@ public class Partie {
         System.out.println(
                 joueur.getNom()
                         + " a perdu ! Son règne a duré "
-                        +nbTours
+                        + nbTours
                         + " tours");
     }
 
+    /**
+     * Cette fonction permet de tirer une question aléatoire dans la banque de questions.
+     * @return Une question aléatoire
+     */
     private static Question getQuestionAleatoire(){
         int numQuestion = (int) (Math.random()*questions.size());
         return questions.get(numQuestion);
