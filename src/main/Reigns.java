@@ -29,6 +29,8 @@ public class Reigns {
      */
     public static void main(String[] args){
 
+        Partie partie = new Partie(initPersonnage(),initBanqueQuestions());
+
         // début du jeu
         System.out.println("Bienvenue sur Reigns");
 
@@ -36,7 +38,7 @@ public class Reigns {
 
         System.out.println("Création du personnage...");
 
-        initPersonnage();
+        //initPersonnage();
 
         System.out.println(personnage.getGenre().longRegne()
                 +" "+personnage.getNom());
@@ -44,53 +46,21 @@ public class Reigns {
         personnage.AfficheJauges();
 
         // tirage des questions
-        int nbTours = 0;
-        while(!personnage.finDuJeu()){
-            nbTours++;
-            Question question = getQuestionAleatoire();
-            reponseQuestion(question);
-            personnage.AfficheJauges();
-        }
+        partie.tourDeJeu();
 
         // fin du jeu
-        System.out.println(
-                personnage.getNom()
-                        + " a perdu ! Son règne a duré "
-                        +nbTours
-                        + " tours");
+        partie.finDePartie();
 
     }
 
-    /**
-     * Cette fonction permet de gérer la réponse à une question donnée. Elle affiche la question, demande à
-     * l'utilisateur d'entrer une réponse (soit "G" soit "D") et en fonction de la réponse, elle appelle la méthode
-     * appropriée pour appliquer les conséquences sur les jauges du personnage.
-     * @param question La question à laquelle il faut répondre
-     */
-    private static void reponseQuestion(Question question){
-        question.afficheQuestion();
-        // récupère la réponse
-        Scanner scanner = new Scanner(System.in);
-        String reponse = "";
-        while(!reponse.equals("G") && !reponse.equals("D")){
-            System.out.println("Entrez la réponse (G ou D)");
-            System.out.flush();
-            reponse = scanner.nextLine();
-        }
-        // applique les malus
-        if(reponse.equals("G")){
-            question.appliqueEffetsGauche(personnage);
-        }else{
-            question.appliqueEffetsDroite(personnage);
-        }
-    }
+
 
     /**
      * Cette fonction permet d'initialiser le personnage joué. Elle demande à l'utilisateur de saisir le nom du personnage
      * et le genre (Roi ou Reine). Elle crée ensuite le personnage.
      */
 
-    private static void initPersonnage(){
+    private static Personnage initPersonnage(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Entrez le nom du personnage: ");
         System.out.flush();
@@ -106,12 +76,13 @@ public class Reigns {
         }
 
         Reigns.personnage = new Personnage(nom,roiReine);
+        return Reigns.personnage;
     }
 
     /**
      * Cette fonction initialise la banque de questions. Elle crée les questions et les ajoute à la banque.
      */
-    private static void initBanqueQuestions(){
+    private static ArrayList<Question> initBanqueQuestions(){
         questions = new ArrayList<>();
         Question question1 = new Question(
                 "Main du roi",
@@ -160,6 +131,7 @@ public class Reigns {
         question5.ajouteEffetDroite(TypeJauge.FINANCE, +1);
         question5.ajouteEffetDroite(TypeJauge.PEUPLE, -3);
         questions.add(question5);
+        return questions;
     }
 
     /**
