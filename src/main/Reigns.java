@@ -10,10 +10,6 @@ import java.util.Scanner;
  * @version 1.0
  */
 public class Reigns {
-    /**
-     * le personnage joué
-     */
-    private static Personnage personnage;
 
     /**
      * la banque de questions
@@ -40,31 +36,6 @@ public class Reigns {
 
         // fin du jeu
         partie.finDePartie();
-    }
-
-
-    /**
-     * Cette fonction permet d'initialiser le personnage joué. Elle demande à l'utilisateur de saisir le nom du personnage
-     * et le genre (Roi ou Reine). Elle crée ensuite le personnage.
-     */
-
-    public static Personnage initPersonnage(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Entrez le nom du personnage: ");
-        System.out.flush();
-        String nom = scanner.nextLine();
-        System.out.println(
-                "Faut-il vous appeler Roi ou Reine ? (1 pour Roi, 2 pour Reine)");
-        int genre = scanner.nextInt();
-        Genre roiReine;
-        if(genre==1){
-            roiReine = Genre.ROI;
-        }else{
-            roiReine = Genre.REINE;
-        }
-
-        Reigns.personnage = new Personnage(nom,roiReine);
-        return Reigns.personnage;
     }
 
     /**
