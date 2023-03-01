@@ -1,32 +1,62 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 public class Reponse {
 
-    protected Map<String, Effet> reponse;
+    protected Map<String, String> reponses;
 
     public Reponse() {
-        this.reponse = new TreeMap<>();
+        this.reponses = new HashMap<>();
     }
 
-    public String afficheReponse(Map<String, Effet> reponses) {
+    public void remplirReponse(String choix, String effet) {
+        this.reponses.put(choix, effet);
+    }
+
+    public String afficherReponses() {
         StringBuilder result = new StringBuilder();
-        for (Map.Entry<String, Effet> reponse : reponses.entrySet()) {
-            result.append("Réponse ").append(reponse.getKey()).append(":");
-            result.append(reponse.getValue());
+
+        result.append(" [");
+
+        for (Map.Entry<String, String> reponse : this.reponses.entrySet()) {
+            result.append(reponse.getKey() + ": " + reponse.getValue() + ", ");
         }
+
+        int indexLastComa = result.lastIndexOf(", ");
+        result.delete(indexLastComa, indexLastComa + 2);
+
+        result.append("] ");
+
         return result.toString();
     }
 
-    public void remplirReponse(String cote, Effet effet) {
-        this.reponse.put(cote, effet);
+    public String afficherChoix(){
+        StringBuilder les_choix = new StringBuilder();
+        les_choix.append("(");
+        for (String choix : this.listerChoix()){
+            les_choix.append(choix + ", ");
+        }
+        les_choix.delete(les_choix.lastIndexOf(", "), les_choix.lastIndexOf(", ") + 2);
+        les_choix.append(")");
+        return les_choix.toString();
     }
+
+    public ArrayList<String> listerChoix(){
+        ArrayList<String> listeChoix = new ArrayList();
+        for (Map.Entry<String, String> reponse : this.reponses.entrySet()) {
+            listeChoix.add(reponse.getKey());
+        }
+        return listeChoix;
+    }
+
+
 
     @Override
     public String toString() {
-        return "Reponse{" + "reponse=" + reponse + "}";
+        return "Reponse{" + "reponse=" + reponses + "}";
     }
 
 }
