@@ -42,12 +42,9 @@ public class Question {
         String result = "["+nomPersonnage+"] "
                 + question
                 + reponses.afficherReponses()
-                // + afficher effets
+                + reponses.afficherReponsesEtEffets();
                 ;
         System.out.println(result);
-        // + afficher effets
-        System.out.println("Effet G:");
-        System.out.println("Effet D:");
         System.out.flush();
     }
 

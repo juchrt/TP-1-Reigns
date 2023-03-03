@@ -6,13 +6,13 @@ import java.util.Map;
 
 public class Reponse {
 
-    protected Map<String, String> reponses;
+    protected Map<String, Effet> reponses;
 
     public Reponse() {
         this.reponses = new HashMap<>();
     }
 
-    public void remplirReponse(String choix, String effet) {
+    public void remplirReponse(String choix, Effet effet) {
         this.reponses.put(choix, effet);
     }
 
@@ -21,14 +21,24 @@ public class Reponse {
 
         result.append(" [");
 
-        for (Map.Entry<String, String> reponse : this.reponses.entrySet()) {
-            result.append(reponse.getKey() + ": " + reponse.getValue() + ", ");
+        for (Map.Entry<String, Effet> reponse : this.reponses.entrySet()) {
+            result.append(reponse.getKey() + ": " + reponse.getValue().message + ", ");
         }
 
         int indexLastComa = result.lastIndexOf(", ");
         result.delete(indexLastComa, indexLastComa + 2);
 
-        result.append("] ");
+        result.append("]");
+
+        return result.toString();
+    }
+
+    public String afficherReponsesEtEffets() {
+        StringBuilder result = new StringBuilder();
+
+        for (Map.Entry<String, Effet> reponse : this.reponses.entrySet()) {
+            result.append("\nEffet " + reponse.getKey() + ": " + reponse.getValue().afficherEffets());
+        }
 
         return result.toString();
     }
@@ -46,7 +56,7 @@ public class Reponse {
 
     public ArrayList<String> listerChoix(){
         ArrayList<String> listeChoix = new ArrayList();
-        for (Map.Entry<String, String> reponse : this.reponses.entrySet()) {
+        for (Map.Entry<String, Effet> reponse : this.reponses.entrySet()) {
             listeChoix.add(reponse.getKey());
         }
         return listeChoix;
