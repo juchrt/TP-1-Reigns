@@ -56,20 +56,25 @@ public class Partie {
      */
     private static void reponseQuestion(Question question){
         question.afficheQuestion();
+
         // récupère la réponse
         Scanner scanner = new Scanner(System.in);
-        String reponse = "";
-        while(!reponse.equals("G") && !reponse.equals("D")){
-            System.out.println("Entrez la réponse (G ou D)");
+        ArrayList<String> listeChoix = question.reponses.listerChoix();
+
+        String reponseUtilisateur = "";
+        while(!listeChoix.contains(reponseUtilisateur)){
+            System.out.println("Entrez la réponse " + question.reponses.afficherChoix());
             System.out.flush();
-            reponse = scanner.nextLine();
+            reponseUtilisateur = scanner.nextLine();
         }
+
+
         // applique les malus
-        if(reponse.equals("G")){
+        /*if(reponse.equals("G")){
             question.appliqueEffetsGauche(joueur);
         }else{
             question.appliqueEffetsDroite(joueur);
-        }
+        }*/
     }
 
     /**
