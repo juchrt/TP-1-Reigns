@@ -117,4 +117,17 @@ public class Effet {
                                   int valeur){
         effetJaugeDroite.put(jauge,valeur);
     }*/
+
+    /*
+     * Retourne une chaîne de caractères représentant les effets d'une jauge.
+     */
+    public String afficherReponsesEtEffets() {
+        StringBuilder result = new StringBuilder();
+
+        for (Map.Entry<String, Effet> reponse : this.reponses.entrySet()) {
+            result.append("\nEffet " + reponse.getKey() + ": " + reponse.getValue().afficherEffets());
+        }
+
+        return result.toString();
+    }
 }

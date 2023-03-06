@@ -33,15 +33,6 @@ public class Reponse {
         return result.toString();
     }
 
-    public String afficherReponsesEtEffets() {
-        StringBuilder result = new StringBuilder();
-
-        for (Map.Entry<String, Effet> reponse : this.reponses.entrySet()) {
-            result.append("\nEffet " + reponse.getKey() + ": " + reponse.getValue().afficherEffets());
-        }
-
-        return result.toString();
-    }
 
     public String afficherChoix(){
         StringBuilder les_choix = new StringBuilder();
