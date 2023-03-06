@@ -1,6 +1,13 @@
 package main;
 
+import java.util.ArrayList;
+
 public class BanqueQuestions {
+
+    /**
+     * la banque de questions
+     */
+    private static ArrayList<Question> questions;
     
      /**
      * Cette fonction initialise la banque de questions. Elle crée les questions et

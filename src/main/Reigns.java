@@ -15,7 +15,7 @@ public class Reigns {
     /**
      * la banque de questions
      */
-    private static ArrayList<Question> questions;
+    private static BanqueQuestions questions;
 
     /**
      * La méthode main lance le jeu Reigns. Il initialise les questions, le
@@ -30,7 +30,7 @@ public class Reigns {
 
         System.out.println("Bienvenue sur Reigns");
         System.out.println("Création de la partie et du personnage...");
-        Partie partie = new Partie(initBanqueQuestions());
+        Partie partie = new Partie(BanqueQuestions.initBanqueQuestions());
 
         // début du jeu
         partie.initialiserPartie();
