@@ -25,11 +25,12 @@ public class Effet {
         StringBuilder result = new StringBuilder();
 
         for (Map.Entry<TypeJauge,Integer> effet : this.effets.entrySet()) {
-            result.append("; Jauge ").append(effet.getKey()).append(":");
+            result.append("Jauge ").append(effet.getKey()).append(":");
             if (effet.getValue() > 0) {
                 result.append("+");
             }
             result.append(effet.getValue());
+            result.append("; ");
         }
 
         return result.toString();
