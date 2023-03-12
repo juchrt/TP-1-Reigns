@@ -1,5 +1,7 @@
 package main;
 
+import java.util.Scanner;
+
 /**
  * Représente un personnage ayant un nom, un genre, et des jauges de Clergé, Peuple, Armée et Finances.
  *
@@ -27,6 +29,30 @@ public class Personnage {
     public Personnage(String nom, Genre genre) {
         this.nom = nom;
         this.genre = genre;
+    }
+
+    /**
+     * Cette fonction permet d'initialiser le personnage joué. Elle demande à
+     * l'utilisateur de saisir le nom du personnage
+     * et le genre (Roi ou Reine). Elle crée ensuite le personnage.
+     */
+    public static Personnage initJoueur() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Entrez le nom du personnage: ");
+        System.out.flush();
+        String nom = scanner.nextLine();
+        System.out.println(
+                "Faut-il vous appeler Roi ou Reine ? (1 pour Roi, 2 pour Reine)");
+        int genre = scanner.nextInt();
+        Genre roiReine;
+        if (genre == 1) {
+            roiReine = Genre.ROI;
+        } else {
+            roiReine = Genre.REINE;
+        }
+
+        Personnage joueur = new Personnage(nom, roiReine);
+        return joueur;
     }
 
     /**

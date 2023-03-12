@@ -11,7 +11,7 @@ public class Partie {
     private static Jauges jauges;
 
     public Partie(ArrayList<Question> questions) {
-        this.joueur = initJoueur();
+        this.joueur = Personnage.initJoueur();
         this.questions = questions;
         this.nbTours = 0;
         this.jauges = new Jauges();
@@ -88,29 +88,7 @@ public class Partie {
          */
     }
 
-    /**
-     * Cette fonction permet d'initialiser le personnage joué. Elle demande à
-     * l'utilisateur de saisir le nom du personnage
-     * et le genre (Roi ou Reine). Elle crée ensuite le personnage.
-     */
-    public Personnage initJoueur() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Entrez le nom du personnage: ");
-        System.out.flush();
-        String nom = scanner.nextLine();
-        System.out.println(
-                "Faut-il vous appeler Roi ou Reine ? (1 pour Roi, 2 pour Reine)");
-        int genre = scanner.nextInt();
-        Genre roiReine;
-        if (genre == 1) {
-            roiReine = Genre.ROI;
-        } else {
-            roiReine = Genre.REINE;
-        }
 
-        this.joueur = new Personnage(nom, roiReine);
-        return this.joueur;
-    }
 
     /**
      * Vérifie si le jeu est fini en vérifiant si une des jauges est à 0 ou 50.
