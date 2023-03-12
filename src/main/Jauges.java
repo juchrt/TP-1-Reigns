@@ -68,7 +68,7 @@ public class Jauges {
 
     public boolean verifyJaugesLife(){
         for (Map.Entry<TypeJauge,Integer> jauge : this.jauges.entrySet()){
-            if (jauge.getValue() < 0 | jauge.getValue() > 50){
+            if (jauge.getValue() <= 0 | jauge.getValue() >= 50){
                 return false;
             }
         }

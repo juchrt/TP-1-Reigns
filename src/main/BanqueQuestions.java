@@ -18,51 +18,123 @@ public class BanqueQuestions {
     public static ArrayList<Question> initBanqueQuestions() {
         questions = new ArrayList<>();
 
-        Reponse reponse1 = new Reponse();
-        Effet effet1 = new Effet("Oui");
-        Effet effet2 = new Effet("Non");
-        Effet effet3 = new Effet("Je ne sais pas");
+        // ---- Première question de la Main du Roi ----
+        // Initialiser et remplir les effets
+        Effet effetGauche1 = new Effet("Oui");
+        Effet effetDroite1 = new Effet("Non");
 
-        effet1.remplirEffets(TypeJauge.CLERGE, 5);
-        effet1.remplirEffets(TypeJauge.PEUPLE, 5);
-        effet2.remplirEffets(TypeJauge.PEUPLE, -1);
-        effet3.remplirEffets(TypeJauge.CLERGE, 6);
+        effetGauche1.remplirEffets(TypeJauge.ARMEE, -5);
+        effetGauche1.remplirEffets(TypeJauge.PEUPLE, 5);
+        effetDroite1.remplirEffets(TypeJauge.PEUPLE, -7);
 
-        reponse1.remplirReponse("G", effet1);
-        reponse1.remplirReponse("D", effet2);
-        reponse1.remplirReponse("H", effet3);
+        // Initialiser et remplir les réponses avec les effets
+        Reponse reponseMainDuRoi1 = new Reponse();
 
+        reponseMainDuRoi1.remplirReponse("G", effetGauche1);
+        reponseMainDuRoi1.remplirReponse("D", effetDroite1);
 
-        // remplir questions
-        Question question1 = new Question(
+        // Créer la question
+        Question mainDuRoi1 = new Question(
                 "Main du roi",
                 "Le peuple souhaite libérer les prisonniers",
-                reponse1);
-        questions.add(question1);
+                reponseMainDuRoi1);
+        questions.add(mainDuRoi1);
 
-        Question question2 = new Question(
+        // ---- Première question du Paysan ----
+        // Initialiser et remplir les effets
+        Effet effetGauche2 = new Effet("Importer de la nourriture");
+        Effet effetDroite2 = new Effet("Ne rien faire");
+
+        effetGauche2.remplirEffets(TypeJauge.FINANCE, -5);
+        effetGauche2.remplirEffets(TypeJauge.PEUPLE, 5);
+        effetDroite2.remplirEffets(TypeJauge.PEUPLE, -5);
+
+        // Initialiser et remplir les réponses avec les effets
+        Reponse reponsePaysan1 = new Reponse();
+
+        reponsePaysan1.remplirReponse("G", effetGauche2);
+        reponsePaysan1.remplirReponse("D", effetDroite2);
+
+        // Créer la question
+        Question Paysan1 = new Question(
                 "Paysan",
                 "Il n'y a plus rien à manger",
-                reponse1);
-        questions.add(question2);
+                reponsePaysan1);
+        questions.add(Paysan1);
 
-        Question question3 = new Question(
+        // ---- Première question du Prêtre ----
+        // Initialiser et remplir les effets
+        Effet effetGauche3 = new Effet("Faire un sacrifice");
+        Effet effetDroite3 = new Effet("Ne rien faire");
+
+        effetGauche3.remplirEffets(TypeJauge.CLERGE, 5);
+        effetGauche3.remplirEffets(TypeJauge.PEUPLE, -3);
+        effetDroite3.remplirEffets(TypeJauge.CLERGE, -5);
+
+        // Initialiser et remplir les réponses avec les effets
+        Reponse reponsePretre1 = new Reponse();
+
+        reponsePretre1.remplirReponse("G", effetGauche3);
+        reponsePretre1.remplirReponse("D", effetDroite3);
+
+        // Créer la question
+        Question pretre1 = new Question(
                 "Prêtre",
                 "Les dieux sont en colère",
-                reponse1);
-        questions.add(question3);
+                reponsePretre1);
+        questions.add(pretre1);
 
-        Question question4 = new Question(
-                "Main du roi",
+
+
+
+        // ---- Deuxième question de la Main du Roi ----
+        // Initialiser et remplir les effets
+        Effet effetGauche4 = new Effet("Le soutenir");
+        Effet effetDroite4 = new Effet("Rester neutre");
+
+        effetGauche4.remplirEffets(TypeJauge.ARMEE, 3);
+        effetGauche4.remplirEffets(TypeJauge.FINANCE, -3);
+        effetGauche4.remplirEffets(TypeJauge.CLERGE, -3);
+        effetDroite4.remplirEffets(TypeJauge.PEUPLE, 3);
+
+        // Initialiser et remplir les réponses avec les effets
+        Reponse reponseMainDuRoi2 = new Reponse();
+
+        reponseMainDuRoi2.remplirReponse("G", effetGauche4);
+        reponseMainDuRoi2.remplirReponse("D", effetDroite4);
+
+        // Créer la question
+        Question mainDuRoi2 = new Question(
+                "Main du Roi",
                 "Le roi Baratheon rassemble son armée",
-                reponse1);
-        questions.add(question4);
+                reponseMainDuRoi2);
+        questions.add(mainDuRoi2);
 
-        Question question5 = new Question(
+
+
+
+        // ---- Deuxième question du Paysan ----
+        // Initialiser et remplir les effets
+        Effet effetGauche5 = new Effet("Taxer énormément");
+        Effet effetDroite5 = new Effet("Taxer un tout petit peu");
+
+        effetGauche5.remplirEffets(TypeJauge.FINANCE, 10);
+        effetGauche5.remplirEffets(TypeJauge.PEUPLE, -5);
+        effetDroite5.remplirEffets(TypeJauge.FINANCE, 1);
+        effetDroite5.remplirEffets(TypeJauge.PEUPLE, -3);
+
+        // Initialiser et remplir les réponses avec les effets
+        Reponse reponsepaysan2 = new Reponse();
+
+        reponsepaysan2.remplirReponse("G", effetGauche5);
+        reponsepaysan2.remplirReponse("D", effetDroite5);
+
+        // Créer la question
+        Question paysan2 = new Question(
                 "Paysan",
                 "Abondance de récoltes cette année",
-                reponse1);
-        questions.add(question5);
+                reponsepaysan2);
+        questions.add(paysan2);
 
         return questions;
     }
