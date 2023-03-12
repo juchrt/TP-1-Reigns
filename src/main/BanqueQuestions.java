@@ -12,6 +12,8 @@ public class BanqueQuestions {
      /**
      * Cette fonction initialise la banque de questions. Elle crée les questions et
      * les ajoute à la banque.
+     * 
+     * @return la banque de questions
      */
     public static ArrayList<Question> initBanqueQuestions() {
         questions = new ArrayList<>();

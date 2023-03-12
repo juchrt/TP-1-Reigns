@@ -7,11 +7,22 @@ public class Effet {
     public Map<TypeJauge,Integer> effets;
     public String message;
 
+    /**
+     * Construit un nouvel effet avec les informations données
+     *
+     * @param message Le message à afficher
+     */
     public Effet(String message) {
         this.effets = new HashMap<>();
         this.message = message;
     }
 
+    /**
+     * Remplit la map des effets d'une jauge avec les informations données
+     * 
+     * @param jauge La jauge à modifier
+     * @param effetSurJauge L'effet sur la jauge
+     */
     public void remplirEffets(TypeJauge jauge, Integer effetSurJauge) {
         this.effets.put(jauge, effetSurJauge);
     }
@@ -46,7 +57,8 @@ public class Effet {
 
     /**
      * Applique les effets d'une jauge sur un personnage donné.
-     *
+     * 
+     * @param jauges Les jauges du personnage
      */
     public void appliqueEffets(Jauges jauges){
         for(Map.Entry<TypeJauge,Integer> effet : effets.entrySet()){

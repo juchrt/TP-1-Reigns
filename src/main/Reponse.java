@@ -56,6 +56,8 @@ public class Reponse {
 
     /**
      * Retourne une chaîne de caractères représentant les choix possibles.
+     * 
+     * @return la chaîne de caractères représentant les choix possibles
      */
     public String afficherChoix(){
         StringBuilder les_choix = new StringBuilder();
@@ -69,7 +71,8 @@ public class Reponse {
     }
 
     /**
-     * Retourne une liste de chaînes de caractères représentant les choix possibles.
+     * Fonction qui retourne la liste des maps de réponses
+     * @return la liste des choix possibles
      */    
     public ArrayList<String> listerChoix(){
         ArrayList<String> listeChoix = new ArrayList();

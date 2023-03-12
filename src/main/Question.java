@@ -27,6 +27,7 @@ public class Question {
      *
      * @param nomPersonnage Le nom du personnage associé à la question
      * @param question La question à poser
+     * @param reponses Les réponses possibles
      */
     public Question(String nomPersonnage,
                     String question, Reponse reponses) {

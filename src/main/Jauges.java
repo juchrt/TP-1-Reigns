@@ -47,7 +47,12 @@ public class Jauges {
         }
     }
 
-    //TODO: docs
+    /**
+     * Met à jour les jauges du personnage.
+     * 
+     * @param key   Le type de jauge à mettre à jour
+     * @param value La valeur à ajouter à la jauge
+     */
     public void updateJauges(TypeJauge key, Integer value){
         Integer lastValue = jauges.get(key);
         Integer updatedValue = lastValue + value;
@@ -55,9 +60,12 @@ public class Jauges {
         jauges.put(key, updatedValue);
     }
 
-    /**
-     * Vérifie que les jauges sont comprises entre 0 et 50.
+     /**
+     * Vérifie si une des jauges est à 0 ou 50.
+     *
+     * @return true si une jauge atteint 0 ou 50, false sinon
      */
+
     public boolean verifyJaugesLife(){
         for (Map.Entry<TypeJauge,Integer> jauge : this.jauges.entrySet()){
             if (jauge.getValue() < 0 | jauge.getValue() > 50){

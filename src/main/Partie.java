@@ -10,6 +10,12 @@ public class Partie {
     private static int nbTours;
     private static Jauges jauges;
 
+    /**
+     * Crée une nouvelle partie avec le personnage et les questions spécifiés.
+     * 
+     * @param joueur    Le personnage joué
+     * @param questions La banque de questions
+     */
     public Partie(ArrayList<Question> questions) {
         this.joueur = Personnage.initJoueur();
         this.questions = questions;
@@ -27,6 +33,10 @@ public class Partie {
         jauges.afficheJauges();
     }
 
+    /**
+     * Cette fonction permet de gérer les tours de jeu donc de piocher une question aléatoire,
+     * de gérer les réponses et de mettre à jour les jauges.
+     */
     public void toursDeJeu() {
         while (!this.finDuJeu()) {
             nbTours++;
@@ -36,6 +46,9 @@ public class Partie {
         }
     }
 
+    /**
+     * Cette fonction affiche le nombre de tours que la personnage a joué
+     */
     public static void finDePartie() {
         System.out.println(
                 joueur.getNom()

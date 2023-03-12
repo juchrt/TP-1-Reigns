@@ -35,6 +35,8 @@ public class Personnage {
      * Cette fonction permet d'initialiser le personnage joué. Elle demande à
      * l'utilisateur de saisir le nom du personnage
      * et le genre (Roi ou Reine). Elle crée ensuite le personnage.
+     * 
+     * @return Le personnage créé
      */
     public static Personnage initJoueur() {
         Scanner scanner = new Scanner(System.in);
