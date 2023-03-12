@@ -16,6 +16,9 @@ public class Reponse {
         this.reponses.put(choix, effet);
     }
 
+    /*
+     * Retourne une chaîne de caractères représentant les réponses possibles.
+     */
     public String afficherReponses() {
         StringBuilder result = new StringBuilder();
 
@@ -33,7 +36,10 @@ public class Reponse {
         return result.toString();
     }
 
-    public String afficherReponsesEtEffets() {
+    /*
+     * Retourne une chaîne de caractères représentant les effets des différentes réponses possibles.
+     */
+    public String afficherReponsesAvecEffets() {
         StringBuilder result = new StringBuilder();
 
         for (Map.Entry<String, Effet> reponse : this.reponses.entrySet()) {
@@ -43,6 +49,9 @@ public class Reponse {
         return result.toString();
     }
 
+    /*
+     * Retourne une chaîne de caractères représentant les choix possibles.
+     */
     public String afficherChoix(){
         StringBuilder les_choix = new StringBuilder();
         les_choix.append("(");
@@ -54,6 +63,9 @@ public class Reponse {
         return les_choix.toString();
     }
 
+    /*
+     * Retourne une liste de chaînes de caractères représentant les choix possibles.
+     */    
     public ArrayList<String> listerChoix(){
         ArrayList<String> listeChoix = new ArrayList();
         for (Map.Entry<String, Effet> reponse : this.reponses.entrySet()) {
