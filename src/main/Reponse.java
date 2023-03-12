@@ -12,11 +12,16 @@ public class Reponse {
         this.reponses = new HashMap<>();
     }
 
+    /**
+     * Remplit la liste des réponses possibles avec les effets associés.
+     * @param choix
+     * @param effet
+     */
     public void remplirReponse(String choix, Effet effet) {
         this.reponses.put(choix, effet);
     }
 
-    /*
+    /**
      * Retourne une chaîne de caractères représentant les réponses possibles.
      */
     public String afficherReponses() {
@@ -36,7 +41,7 @@ public class Reponse {
         return result.toString();
     }
 
-    /*
+    /**
      * Retourne une chaîne de caractères représentant les effets des différentes réponses possibles.
      */
     public String afficherReponsesAvecEffets() {
@@ -49,7 +54,7 @@ public class Reponse {
         return result.toString();
     }
 
-    /*
+    /**
      * Retourne une chaîne de caractères représentant les choix possibles.
      */
     public String afficherChoix(){
@@ -63,7 +68,7 @@ public class Reponse {
         return les_choix.toString();
     }
 
-    /*
+    /**
      * Retourne une liste de chaînes de caractères représentant les choix possibles.
      */    
     public ArrayList<String> listerChoix(){
