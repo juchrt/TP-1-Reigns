@@ -8,7 +8,7 @@ public class Partie {
     private static Personnage joueur;
     private static ArrayList<Question> questions;
     private static int nbTours;
-    private Jauges jauges;
+    private static Jauges jauges;
 
     public Partie(ArrayList<Question> questions) {
         this.joueur = initJoueur();
@@ -18,18 +18,21 @@ public class Partie {
     }
 
     public static void initialiserPartie() {
+        // initialiser joueur
         System.out.println(joueur.getGenre().longRegne()
-                + " " + joueur.getNom());
-        Jauges.initJauges();
-        joueur.AfficheJauges();
+                + joueur.getNom());
+
+        //initialiser jauges
+        jauges.initJauges();
+        jauges.afficheJauges();
     }
 
-    public static void toursDeJeu() {
-        while (!joueur.finDuJeu()) {
+    public void toursDeJeu() {
+        while (!this.finDuJeu()) {
             nbTours++;
             Question question = getQuestionAleatoire();
             reponseQuestion(question);
-            joueur.AfficheJauges();
+            jauges.afficheJauges();
         }
     }
 
@@ -115,17 +118,10 @@ public class Partie {
      * @return true si le jeu est fini, false sinon
      */
     public boolean finDuJeu() {
-        if (jaugeClerge.getValeur() <= 0
-                || jaugeClerge.getValeur() >= 50
-                || jaugePeuple.getValeur() <= 0
-                || jaugePeuple.getValeur() >= 50
-                || jaugeArmee.getValeur() <= 0
-                || jaugeArmee.getValeur() >= 50
-                || jaugeFinance.getValeur() <= 0
-                || jaugeFinance.getValeur() >= 50) {
-            return true;
-        } else {
+        if (jauges.verifyJaugesLife()) {
             return false;
+        } else {
+            return true;
         }
     }
 

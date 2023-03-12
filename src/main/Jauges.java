@@ -15,9 +15,6 @@ public class Jauges {
 
     /**
      * Crée une nouvelle jauge avec le nom et la valeur spécifiés.
-     *
-     * @param nom    Le nom de la jauge
-     * @param valeur La valeur de la jauge
      */
     public Jauges() {
         this.jauges = new HashMap<>();
@@ -26,9 +23,18 @@ public class Jauges {
     /**
      * Affiche les jauges de Clergé, Peuple, Armée et Finances du personnage.
      */
-    public void AfficheJauges() {
+    public void afficheJauges() {
         for (Map.Entry<TypeJauge, Integer> entry : jauges.entrySet()) {
-            System.out.println(entry.getKey() + " : " + entry.getValue());
+            String resultat = "[";
+            for (int i = 0; i < 50; i++){
+                if (i < entry.getValue()){
+                    resultat += "#";
+                }else{
+                    resultat += "_";
+                }
+            }
+            resultat += "] ";
+            System.out.println(resultat + entry.getKey() + " (" + entry.getValue() + "/50)");
         }
     }
 
@@ -37,10 +43,9 @@ public class Jauges {
      * représenter la valeur de la jauge
      * et des "_" pour représenter la valeur manquante.
      *
-     * @param jauge La jauge à afficher
      */
-    private void afficheJauge(Jauge jauge) {
-        String resultat = "[";
+    private void afficheJauge() {
+        /*String resultat = "[";
         // valeur : ####
         for (int i = 0; i < jauge.getValeur(); i++) {
             resultat += "#";
@@ -51,14 +56,22 @@ public class Jauges {
         }
         resultat += "] ";
         // affichage du nom
-        resultat += jauge.getNom();
-        System.out.println(resultat);
+        resultat += jauge.getNom();*/
+        System.out.println("Jauges");
     }
 
     public void initJauges() {
-
         for (TypeJauge type : TypeJauge.values()) {
             jauges.put(type, 15 + (int) (Math.random() * (35 - 15)));
         }
+    }
+
+    public boolean verifyJaugesLife(){
+        for (Map.Entry<TypeJauge,Integer> jauge : this.jauges.entrySet()){
+            if (jauge.getValue() < 0 | jauge.getValue() > 50){
+                return false;
+            }
+        }
+        return true;
     }
 }

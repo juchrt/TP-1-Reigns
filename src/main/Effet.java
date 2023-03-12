@@ -70,7 +70,7 @@ public class Effet {
      */
     private void appliqueEffets(Map<TypeJauge,Integer> effets,
                                 Personnage personnage){
-        for(Map.Entry<TypeJauge,Integer> effet : effets.entrySet()){
+        /*for(Map.Entry<TypeJauge,Integer> effet : effets.entrySet()){
             switch(effet.getKey()){
                 case ARMEE:
                     personnage.getJaugeArmee().setValeur(
@@ -93,7 +93,7 @@ public class Effet {
                                     +effet.getValue());
                     break;
             }
-        }
+        }*/
     }
 
     /**
@@ -124,9 +124,9 @@ public class Effet {
     public String afficherReponsesEtEffets() {
         StringBuilder result = new StringBuilder();
 
-        for (Map.Entry<String, Effet> reponse : this.reponses.entrySet()) {
+        /*for (Map.Entry<String, Effet> reponse : this.reponses.entrySet()) {
             result.append("\nEffet " + reponse.getKey() + ": " + reponse.getValue().afficherEffets());
-        }
+        }*/
 
         return result.toString();
     }
