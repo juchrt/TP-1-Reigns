@@ -20,6 +20,13 @@ public class Jauges {
         this.jauges = new HashMap<>();
     }
 
+    //TODO: documentation
+    public void initJauges() {
+        for (TypeJauge type : TypeJauge.values()) {
+            jauges.put(type, 15 + (int) (Math.random() * (35 - 15)));
+        }
+    }
+
     /**
      * Affiche les jauges de Clergé, Peuple, Armée et Finances du personnage.
      */
@@ -38,34 +45,9 @@ public class Jauges {
         }
     }
 
-    /**
-     * Affiche une jauge avec un format graphique, en utilisant des "#" pour
-     * représenter la valeur de la jauge
-     * et des "_" pour représenter la valeur manquante.
-     *
-     */
-    private void afficheJauge() {
-        /*String resultat = "[";
-        // valeur : ####
-        for (int i = 0; i < jauge.getValeur(); i++) {
-            resultat += "#";
-        }
-        // on complète avec ____
-        for (int i = 0; i < 50 - (jauge.getValeur() > 0 ? jauge.getValeur() : 0); i++) {
-            resultat += "_";
-        }
-        resultat += "] ";
-        // affichage du nom
-        resultat += jauge.getNom();*/
-        System.out.println("Jauges");
-    }
+    //TODO: updateJauge
 
-    public void initJauges() {
-        for (TypeJauge type : TypeJauge.values()) {
-            jauges.put(type, 15 + (int) (Math.random() * (35 - 15)));
-        }
-    }
-
+    //TODO: documentation
     public boolean verifyJaugesLife(){
         for (Map.Entry<TypeJauge,Integer> jauge : this.jauges.entrySet()){
             if (jauge.getValue() < 0 | jauge.getValue() > 50){
