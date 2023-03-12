@@ -20,7 +20,7 @@ public class Jauges {
         this.jauges = new HashMap<>();
     }
 
-    /*
+    /**
      * Initialise les jauges du personnage.
      */
     public void initJauges() {
@@ -47,9 +47,15 @@ public class Jauges {
         }
     }
 
-    //TODO: updateJauge
+    //TODO: docs
+    public void updateJauges(TypeJauge key, Integer value){
+        Integer lastValue = jauges.get(key);
+        Integer updatedValue = lastValue + value;
 
-    /*
+        jauges.put(key, updatedValue);
+    }
+
+    /**
      * Vérifie que les jauges sont comprises entre 0 et 50.
      */
     public boolean verifyJaugesLife(){

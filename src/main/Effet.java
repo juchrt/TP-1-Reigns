@@ -47,34 +47,13 @@ public class Effet {
     /**
      * Applique les effets d'une jauge sur un personnage donné.
      *
-     * @param effets les effets de jauge à appliquer
-     * @param personnage le personnage sur lequel les effets doivent être appliqués
      */
-    private void appliqueEffets(Map<TypeJauge,Integer> effets,
-                                Personnage personnage){
-        /*for(Map.Entry<TypeJauge,Integer> effet : effets.entrySet()){
-            switch(effet.getKey()){
-                case ARMEE:
-                    personnage.getJaugeArmee().setValeur(
-                            personnage.getJaugeArmee().getValeur()
-                                    +effet.getValue());
-                    break;
-                case CLERGE:
-                    personnage.getJaugeClerge().setValeur(
-                            personnage.getJaugeClerge().getValeur()
-                                    +effet.getValue());
-                    break;
-                case FINANCE:
-                    personnage.getJaugeFinance().setValeur(
-                            personnage.getJaugeFinance().getValeur()
-                                    +effet.getValue());
-                    break;
-                case PEUPLE:
-                    personnage.getJaugePeuple().setValeur(
-                            personnage.getJaugePeuple().getValeur()
-                                    +effet.getValue());
-                    break;
-            }
-        }*/
+    public void appliqueEffets(Jauges jauges){
+        for(Map.Entry<TypeJauge,Integer> effet : effets.entrySet()){
+            TypeJauge jaugeToUpdate = effet.getKey();
+            Integer effectToApply = effet.getValue();
+
+            jauges.updateJauges(jaugeToUpdate, effectToApply);
+        }
     }
 }

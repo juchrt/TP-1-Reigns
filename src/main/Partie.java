@@ -78,14 +78,9 @@ public class Partie {
             reponseUtilisateur = scanner.nextLine();
         }
 
-        // applique les malus
-        /*
-         * if(reponse.equals("G")){
-         * question.appliqueEffetsGauche(joueur);
-         * }else{
-         * question.appliqueEffetsDroite(joueur);
-         * }
-         */
+        //applique les effets
+        Effet effetReponseUser = question.reponses.reponses.get(reponseUtilisateur);
+        effetReponseUser.appliqueEffets(jauges);
     }
 
 
